@@ -5,7 +5,7 @@
 		<name>Interface</name>
 		<uuid>92c8f8e1-bbc1-4e0d-8bca-ccf2371059ae</uuid>
 		<vendor>isee systems, inc.</vendor>
-		<product version="4.1.2" isee:build_number="3804" isee:saved_by_v1="true" lang="en">Stella Architect</product>
+		<product version="4.1.2" isee:build_number="3810" isee:saved_by_v1="true" lang="en">Stella Architect</product>
 	</header>
 	<ai_information>
 		<status verified="false"/>
@@ -45,6 +45,9 @@
 			<isee:ignored_word>hydropower</isee:ignored_word>
 			<isee:ignored_word>C3S</isee:ignored_word>
 			<isee:ignored_word>CLD</isee:ignored_word>
+			<isee:ignored_word>Balancer</isee:ignored_word>
+			<isee:ignored_word>nitrous</isee:ignored_word>
+			<isee:ignored_word>incentivized</isee:ignored_word>
 		</isee:ignored_words>
 		<interface_template>D:/FRIDA/WorldTransFRIDA-ILE/Template</interface_template>
 	</isee:prefs>
@@ -269,32 +272,32 @@
 	</model_units>
 	<model name="Interface">
 		<variables>
-			<aux name="Surface Temperature Anomaly" access="input">
+			<aux name="Surface Temperature Anomaly" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>deg C</units>
 			</aux>
-			<aux name="real GDP per person" access="input">
+			<aux name="real GDP per person" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>bc$/Mp/year</units>
 			</aux>
-			<aux name="income inequality" access="input">
+			<aux name="income inequality" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="tax on CO2e emissions" access="input">
+			<aux name="tax on CO2e emissions" ai_state="B" access="input">
 				<eqn>TIME</eqn>
 				<units>c$/(tCO2e/year)</units>
 			</aux>
-			<aux name="tax on SO2 emissions" access="input">
+			<aux name="tax on SO2 emissions" ai_state="B" access="input">
 				<eqn>TIME</eqn>
 				<gf>
 					<xscale min="1980" max="2150"/>
@@ -303,31 +306,31 @@
 				</gf>
 				<units>c$/(tSO2/year)</units>
 			</aux>
-			<isee:placeholder name="rate of decommissioning\nextraction capital" isee:derived_units="true">
+			<isee:placeholder name="rate of decommissioning\nextraction capital" ai_state="B" isee:derived_units="true">
 				<eqn>Government_Regulations.rate_of_decommissioning_coal_fossil_fuel_extraction_capital{Coal} + Government_Regulations.rate_of_decommissioning_oil_fossil_fuel_extraction_capital{Oil} + Government_Regulations.rate_of_decommissioning_gas_fossil_fuel_extraction_capital{Gas}</eqn>
 				<units>1/year</units>
 			</isee:placeholder>
-			<isee:placeholder name="fossil extraction\ncapacity placeholder" isee:derived_units="true">
+			<isee:placeholder name="fossil extraction\ncapacity placeholder" ai_state="B" isee:derived_units="true">
 				<eqn>Government_Regulations.tax_rate_on_newly_installed_coal_extraction_capacity{Coal} + Government_Regulations.tax_rate_on_newly_installed_oil_extraction_capacity{Oil} + Government_Regulations.tax_rate_on_newly_installed_gas_extraction_capacity{Gas}</eqn>
 				<units>c$/(kWh/Years)</units>
 			</isee:placeholder>
-			<isee:placeholder name="fossil production\ncapacity placeholder" isee:derived_units="true">
+			<isee:placeholder name="fossil production\ncapacity placeholder" ai_state="B" isee:derived_units="true">
 				<eqn>Government_Regulations.tax_rate_on_newly_installed_coal_energy_production_capacity{Coal} + Government_Regulations.tax_rate_on_newly_installed_oil_energy_production_capacity{Oil} + Government_Regulations.tax_rate_on_newly_installed_gas_energy_production_capacity{Gas}</eqn>
 				<units>c$/(kWh/Years)</units>
 			</isee:placeholder>
-			<isee:placeholder name="share of emissions stored" isee:derived_units="true">
+			<isee:placeholder name="share of emissions stored" ai_state="B" isee:derived_units="true">
 				<eqn>Government_Regulations.share_of_coal_emissions_stored{Coal} + Government_Regulations.share_of_oil_emissions_stored{Oil} + Government_Regulations.share_of_gas_emissions_stored{Gas} + Government_Regulations.share_of_biofuel_emissions_stored{Biofuel}</eqn>
 				<units>dmnl</units>
 			</isee:placeholder>
-			<aux name="Moratorium on fossil energy year" access="input">
+			<aux name="Moratorium on fossil energy year" ai_state="B" access="input">
 				<eqn>2150</eqn>
 				<units>Year</units>
 			</aux>
-			<aux name="switch food demand\npolicy" access="input">
+			<aux name="switch food demand\npolicy" ai_state="B" access="input">
 				<eqn>0</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="food demand policy" access="input">
+			<aux name="food demand policy" ai_state="B" access="input">
 				<eqn>TIME</eqn>
 				<units>kCal/Person/Day</units>
 			</aux>
@@ -335,15 +338,15 @@
 				<eqn>0</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="animal products fraction policy" access="input">
+			<aux name="animal products fraction policy" ai_state="B" access="input">
 				<eqn>TIME</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="switch aquatic animal products\nfraction policy" access="input">
+			<aux name="switch aquatic animal products\nfraction policy" ai_state="B" access="input">
 				<eqn>0</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="aquatic animal products\nfraction policy" access="input">
+			<aux name="aquatic animal products\nfraction policy" ai_state="B" access="input">
 				<eqn>TIME</eqn>
 				<gf>
 					<xscale min="1980" max="2150"/>
@@ -352,23 +355,23 @@
 				</gf>
 				<units>dmnl</units>
 			</aux>
-			<aux name="switch energy demand policy" access="input">
+			<aux name="switch energy demand policy" ai_state="B" access="input">
 				<eqn>0</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="per person use of energy policy" access="input">
+			<aux name="per person use of energy policy" ai_state="B" access="input">
 				<eqn>TIME</eqn>
 				<units>MWh/(p*year)</units>
 			</aux>
-			<aux name="switch non agricultural water use policy" access="input">
+			<aux name="switch non agricultural water use policy" ai_state="B" access="input">
 				<eqn>0</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="non agricultural\nwater use policy" access="input">
+			<aux name="non agricultural\nwater use policy" ai_state="B" access="input">
 				<eqn>TIME</eqn>
 				<units>m^3/Mp/year</units>
 			</aux>
-			<aux name="animal product\nefficiency policy" access="input">
+			<aux name="animal product\nefficiency policy" ai_state="B" access="input">
 				<eqn>TIME</eqn>
 				<gf>
 					<xscale min="1980" max="2150"/>
@@ -377,19 +380,19 @@
 				</gf>
 				<units>dmnl</units>
 			</aux>
-			<aux name="switch irrigation fraction policy" access="input">
+			<aux name="switch irrigation fraction policy" ai_state="B" access="input">
 				<eqn>0</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="irrigation fraction policy" access="input">
+			<aux name="irrigation fraction policy" ai_state="B" access="input">
 				<eqn>TIME</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="switch animal product\nefficiency policy" access="input">
+			<aux name="switch animal product\nefficiency policy" ai_state="B" access="input">
 				<eqn>0</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="irrigation efficiency multiplier" access="input">
+			<aux name="irrigation efficiency multiplier" ai_state="B" access="input">
 				<eqn>TIME</eqn>
 				<gf>
 					<xscale min="1980" max="2150"/>
@@ -398,27 +401,27 @@
 				</gf>
 				<units>dmnl</units>
 			</aux>
-			<aux name="forestation policy" access="input">
+			<aux name="forestation policy" ai_state="B" access="input">
 				<eqn>TIME</eqn>
 				<units>Mha/year</units>
 			</aux>
-			<isee:placeholder name="concrete policy" isee:derived_units="true">
+			<isee:placeholder name="concrete policy" ai_state="B" isee:derived_units="true">
 				<eqn>Government_Regulations.concrete_residential_and_service_maintenance_policy{Residential and Service Maintenance Fraction} + Government_Regulations.concrete_infrastructure_maintenance_policy{Infrastructure Maintenance Fraction} + Government_Regulations.Residential_and_Service_buildings_longevity_policy{Residential and Service Longevity Multiplier} + Government_Regulations.Infrastructure_buildings_longevity_policy{Infrastructure Longevity Multiplier}</eqn>
 				<units>dmnl</units>
 			</isee:placeholder>
-			<aux name="wealth tax policy" access="input">
+			<aux name="wealth tax policy" ai_state="B" access="input">
 				<eqn>0</eqn>
 				<units>1/year</units>
 			</aux>
-			<aux name="minimum percentage of taxes spent by government" access="input">
+			<aux name="minimum percentage of taxes spent by government" ai_state="B" access="input">
 				<eqn>0.9</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="government debt to\nGDP ratio target" access="input">
+			<aux name="government debt to\nGDP ratio target" ai_state="B" access="input">
 				<eqn>1.2</eqn>
 				<units>year</units>
 			</aux>
-			<aux name="additional transfers policy" access="input">
+			<aux name="additional transfers policy" ai_state="B" access="input">
 				<eqn>TIME</eqn>
 				<gf>
 					<xscale min="1980" max="2150"/>
@@ -427,162 +430,162 @@
 				</gf>
 				<units>dmnl</units>
 			</aux>
-			<aux name="inflation goal policy" access="input">
+			<aux name="inflation goal policy" ai_state="B" access="input">
 				<eqn>0.02</eqn>
 				<units>1/year</units>
 			</aux>
-			<aux name="unemployment goal policy" access="input">
+			<aux name="unemployment goal policy" ai_state="B" access="input">
 				<eqn>0.05</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="max change per year in inflation" access="input">
+			<aux name="max change per year in inflation" ai_state="B" access="input">
 				<eqn>.001</eqn>
 				<units>1/year^2</units>
 			</aux>
-			<aux name="max change per year\nin unemployment" access="input">
+			<aux name="max change per year\nin unemployment" ai_state="B" access="input">
 				<eqn>.001</eqn>
 				<units>1/year</units>
 			</aux>
-			<aux name="No SLR adaptation strategy" access="input">
+			<aux name="No SLR adaptation strategy" ai_state="B" access="input">
 				<eqn>1</eqn>
 				<units>1</units>
 			</aux>
-			<aux name="Protection as SLR adaptation strategy" access="input">
+			<aux name="Protection as SLR adaptation strategy" ai_state="B" access="input">
 				<eqn>0</eqn>
 				<units>1</units>
 			</aux>
-			<aux name="Retreat as SLR adaptation strategy" access="input">
+			<aux name="Retreat as SLR adaptation strategy" ai_state="B" access="input">
 				<eqn>0</eqn>
 				<units>1</units>
 			</aux>
-			<aux name="Set GDPpp\nTarget Value">
+			<aux name="Set GDPpp\nTarget Value" ai_state="B">
 				<eqn>NAN</eqn>
 				<format precision="1"/>
 				<range min="20" max="200"/>
 				<units>bc$/Mp/year</units>
 			</aux>
-			<aux name="Set STA\nTarget Year">
+			<aux name="Set STA\nTarget Year" ai_state="B">
 				<eqn>NAN</eqn>
 				<format precision="1"/>
 				<range min="2026" max="2150"/>
 				<units>Year</units>
 			</aux>
-			<aux name="Set GDPpp\nTarget Year">
+			<aux name="Set GDPpp\nTarget Year" ai_state="B">
 				<eqn>NAN</eqn>
 				<format precision="1"/>
 				<range min="2026" max="2150"/>
 				<units>Year</units>
 			</aux>
-			<aux name="Play Button Visibility">
+			<aux name="Play Button Visibility" ai_state="B">
 				<eqn>IF Play_Button_Pressed = 0  OR TIME= STARTTIME OR TIME=STOPTIME THEN 1 ELSE 0</eqn>
 				<format precision="1"/>
 				<scale min="0" max="1"/>
 				<range min="0" max="1"/>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Pause Button Visibility">
+			<aux name="Pause Button Visibility" ai_state="B">
 				<eqn>IF Play_Button_Visibility = 1 THEN 0 ELSE 1</eqn>
 				<format precision="1"/>
 				<range min="0" max="1"/>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Play Button Pressed">
+			<aux name="Play Button Pressed" ai_state="B">
 				<eqn>0</eqn>
 				<format precision="1"/>
 				<range min="0" max="2"/>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Set STA\nTarget Value">
+			<aux name="Set STA\nTarget Value" ai_state="B">
 				<eqn>NAN</eqn>
 				<format precision="0.1"/>
 				<range min="1" max="6"/>
 				<units>deg C</units>
 			</aux>
-			<aux name="Next to Policy Page\nButton Visibility">
+			<aux name="Next to Policy Page\nButton Visibility" ai_state="B">
 				<eqn>IF BullsEye_STA_Visibility + BullsEye_GDPpp_Visibility + BullsEye_Inequality_Visibility &gt;= 1 THEN 1 ELSE 0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Set Your Goal Reminder">
+			<aux name="Set Your Goal Reminder" ai_state="B">
 				<eqn>IF Next_to_Policy_Page_Button_Visibility = 1 THEN 0 ELSE 1</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="BullsEye STA\nVisibility">
+			<aux name="BullsEye STA\nVisibility" ai_state="B">
 				<eqn>IF Set_STA_Target_Value&gt;0 AND Set_STA_Target_Year&gt;0 THEN 1 ELSE 0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="BullsEye GDPpp\nVisibility">
+			<aux name="BullsEye GDPpp\nVisibility" ai_state="B">
 				<eqn>IF Set_GDPpp_Target_Value&gt;0 AND Set_GDPpp_Target_Year &gt;0 THEN 1 ELSE 0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Bulls Eye\nAnimation Width">
+			<aux name="Bulls Eye\nAnimation Width" ai_state="B">
 				<eqn>484.5</eqn>
 				<units>px</units>
 			</aux>
-			<aux name="Bulls Eye\nAnimation Height">
+			<aux name="Bulls Eye\nAnimation Height" ai_state="B">
 				<eqn>102.75</eqn>
 				<units>px</units>
 			</aux>
-			<aux name="STA Bulls Eye X Axis">
+			<aux name="STA Bulls Eye X Axis" ai_state="B">
 				<eqn>((Set_STA_Target_Year-Time_Min) / (Time_Max-Time_Min)) * Bulls_Eye_Animation_Width</eqn>
 				<units>px</units>
 			</aux>
-			<aux name="STA Bulls Eye Y Axis">
+			<aux name="STA Bulls Eye Y Axis" ai_state="B">
 				<eqn>(1-(Set_STA_Target_Value-0)/(STA_Max-0))*Bulls_Eye_Animation_Height</eqn>
 				<units>px</units>
 			</aux>
-			<aux name="STA Max">
+			<aux name="STA Max" ai_state="B">
 				<eqn>6</eqn>
 				<units>deg C</units>
 			</aux>
-			<aux name="Time Max">
+			<aux name="Time Max" ai_state="B">
 				<eqn>2150</eqn>
 				<units>Year</units>
 			</aux>
-			<aux name="Time Min">
+			<aux name="Time Min" ai_state="B">
 				<eqn>1980</eqn>
 				<units>Year</units>
 			</aux>
-			<aux name="Page 2 Option 1">
+			<aux name="Page 2 Option 1" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Page 2 Option 2">
+			<aux name="Page 2 Option 2" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Page 2 Option 3">
+			<aux name="Page 2 Option 3" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Page 2 Option 4">
+			<aux name="Page 2 Option 4" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Page 2 Option 5">
+			<aux name="Page 2 Option 5" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="2nd Page-Next Page\nOption Visibility">
+			<aux name="2nd Page-Next Page\nOption Visibility" ai_state="B">
 				<eqn>Page_2_Option_1</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="2nd Page-Next Page\nMessage Visibility">
+			<aux name="2nd Page-Next Page\nMessage Visibility" ai_state="B">
 				<eqn>IF &quot;2nd_Page-Next_Page_Option_Visibility&quot; = 1 THEN 0 ELSE 1</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="GDPpp Bulls Eye Y Axis">
+			<aux name="GDPpp Bulls Eye Y Axis" ai_state="B">
 				<eqn>(1-(Set_GDPpp_Target_Value-0)/(GDP_Max-0))*Bulls_Eye_Animation_Height</eqn>
 				<units>px</units>
 			</aux>
-			<aux name="GDP Max">
+			<aux name="GDP Max" ai_state="B">
 				<eqn>200</eqn>
 				<units>bc$/Mp/year</units>
 			</aux>
-			<aux name="GDPpp Bulls Eye X Axis">
+			<aux name="GDPpp Bulls Eye X Axis" ai_state="B">
 				<eqn>((Set_GDPpp_Target_Year-Time_Min) / (Time_Max-Time_Min)) * Bulls_Eye_Animation_Width</eqn>
 				<units>px</units>
 			</aux>
-			<aux name="Text 1980 Appearance">
+			<aux name="Text 1980 Appearance" ai_state="B">
 				<eqn>IF show_descriptive_text AND TIME &gt;= 1981 AND TIME &lt; 2000 THEN 1 ELSE 0</eqn>
 				<units>Dimensionless</units>
 				<event_poster>
@@ -593,7 +596,7 @@
 					</threshold>
 				</event_poster>
 			</aux>
-			<aux name="Text 2000 Appearance">
+			<aux name="Text 2000 Appearance" ai_state="B">
 				<eqn>IF show_descriptive_text AND TIME &gt;= 2000 AND TIME &lt; 2025 THEN 1 ELSE 0</eqn>
 				<units>Dimensionless</units>
 				<event_poster>
@@ -604,7 +607,7 @@
 					</threshold>
 				</event_poster>
 			</aux>
-			<aux name="Text 2025 Appearance">
+			<aux name="Text 2025 Appearance" ai_state="B">
 				<eqn>IF show_descriptive_text AND TIME &gt;= 2025 AND TIME &lt; 2050 THEN 1 ELSE 0</eqn>
 				<units>Dimensionless</units>
 				<event_poster>
@@ -615,7 +618,7 @@
 					</threshold>
 				</event_poster>
 			</aux>
-			<aux name="Text 2050 Appearance">
+			<aux name="Text 2050 Appearance" ai_state="B">
 				<eqn>IF show_descriptive_text AND TIME &gt;= 2050 AND TIME &lt; 2100 THEN 1 ELSE 0</eqn>
 				<units>Dimensionless</units>
 				<event_poster>
@@ -626,7 +629,7 @@
 					</threshold>
 				</event_poster>
 			</aux>
-			<aux name="Text 2100 Appearance">
+			<aux name="Text 2100 Appearance" ai_state="B">
 				<eqn>IF show_descriptive_text AND TIME &gt;= 2100 AND TIME &lt; 2140 THEN 1 ELSE 0</eqn>
 				<units>Dimensionless</units>
 				<event_poster>
@@ -637,7 +640,7 @@
 					</threshold>
 				</event_poster>
 			</aux>
-			<aux name="Text 2150 Appearance">
+			<aux name="Text 2150 Appearance" ai_state="B">
 				<eqn>IF show_descriptive_text AND TIME &gt;= 2149 AND TIME &lt; 2150  THEN 1 ELSE 0</eqn>
 				<units>Dimensionless</units>
 				<event_poster>
@@ -648,19 +651,19 @@
 					</threshold>
 				</event_poster>
 			</aux>
-			<aux name="Text Intro Appearance">
+			<aux name="Text Intro Appearance" ai_state="B">
 				<eqn>IF  TIME = 1980  THEN 1 ELSE 0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<isee:placeholder name="renewable capacity placeholder" isee:derived_units="true">
+			<isee:placeholder name="renewable capacity placeholder" ai_state="B" isee:derived_units="true">
 				<eqn>Government_Regulations.tax_rate_on_newly_installed_solar_energy_capacity{Solar} + Government_Regulations.tax_rate_on_newly_installed_wind_energy_capacity{Wind} + Government_Regulations.tax_rate_on_newly_installed_hydropower_capacity{Hydropower} + Government_Regulations.tax_rate_on_newly_installed_nuclear_energy_capacity{Nuclear} + Government_Regulations.tax_rate_on_newly_installed_bio_energy_capacity{Bio Energy}</eqn>
 				<units>c$/(kWh/Years)</units>
 			</isee:placeholder>
-			<aux name="Goal Setting Boxes Curtain Disappear">
+			<aux name="Goal Setting Boxes Curtain Disappear" ai_state="B">
 				<eqn>IF NOT show_descriptive_text OR TIME = 2150 THEN 0 ELSE 1</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Goal Setting\nMessage Appearance">
+			<aux name="Goal Setting\nMessage Appearance" ai_state="B">
 				<eqn>IF Goal_Setting_Boxes_Curtain_Disappear=0 THEN 1 ELSE 0</eqn>
 				<units>Dimensionless</units>
 				<event_poster>
@@ -671,71 +674,71 @@
 					</threshold>
 				</event_poster>
 			</aux>
-			<aux name="Simulation Time">
+			<aux name="Simulation Time" ai_state="B">
 				<eqn>TIME</eqn>
 				<units>Year</units>
 			</aux>
-			<aux name="Test Year">
+			<aux name="Test Year" ai_state="B">
 				<eqn>2025</eqn>
 				<format precision="1"/>
 				<range min="2030" max="2150"/>
 				<units>Year</units>
 			</aux>
-			<aux name="Test Y Axis value">
+			<aux name="Test Y Axis value" ai_state="B">
 				<eqn>1</eqn>
 				<format precision="1"/>
 				<range min="25" max="75"/>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="STA Dashboard\nBulls Eye\nY Axis">
+			<aux name="STA Dashboard\nBulls Eye\nY Axis" ai_state="B">
 				<eqn>(1-(Set_STA_Target_Value-0)/(STA_Max-0))*Bulls_Eye_Dashboard_Animation_Height</eqn>
 				<units>px</units>
 			</aux>
-			<aux name="Bulls Eye\nDashboard Animation Height">
+			<aux name="Bulls Eye\nDashboard Animation Height" ai_state="B">
 				<eqn>386</eqn>
 				<units>px</units>
 			</aux>
-			<aux name="STA Dashboard\nBulls Eye X Axis">
+			<aux name="STA Dashboard\nBulls Eye X Axis" ai_state="B">
 				<eqn>((Set_STA_Target_Year-Time_Minimum) / (Time_Max-Time_Minimum)) * Bulls_Eye_Dashboard_Animation_Width</eqn>
 				<units>px</units>
 			</aux>
-			<aux name="Bulls Eye\nDashboard Animation Width">
+			<aux name="Bulls Eye\nDashboard Animation Width" ai_state="B">
 				<eqn>865</eqn>
 				<units>px</units>
 			</aux>
-			<aux name="Time Minimum">
+			<aux name="Time Minimum" ai_state="B">
 				<eqn>2020</eqn>
 				<units>Year</units>
 			</aux>
-			<aux name="GDPpp Dashboard Bulls Eye Y Axis">
+			<aux name="GDPpp Dashboard Bulls Eye Y Axis" ai_state="B">
 				<eqn>(1-(Set_GDPpp_Target_Value-0)/(GDP_Max-0))*Bulls_Eye_Dashboard_Animation_Height</eqn>
 				<units>px</units>
 			</aux>
-			<aux name="GDPpp Dashboard\nBulls Eye X Axis">
+			<aux name="GDPpp Dashboard\nBulls Eye X Axis" ai_state="B">
 				<eqn>((Set_GDPpp_Target_Year-Time_Minimum) / (Time_Max-Time_Minimum)) * Bulls_Eye_Dashboard_Animation_Width</eqn>
 				<units>px</units>
 			</aux>
-			<aux name="show descriptive text">
+			<aux name="show descriptive text" ai_state="B">
 				<eqn>0</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Set Inequality\nTarget Value">
+			<aux name="Set Inequality\nTarget Value" ai_state="B">
 				<eqn>NAN</eqn>
 				<format precision="1" display_as="percent"/>
 				<range min="25" max="75"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Set Inequality\nTarget Year">
+			<aux name="Set Inequality\nTarget Year" ai_state="B">
 				<eqn>NAN</eqn>
 				<format precision="1"/>
 				<range min="2026" max="2150"/>
 				<units>Year</units>
 			</aux>
-			<aux name="BullsEye Inequality\nVisibility">
+			<aux name="BullsEye Inequality\nVisibility" ai_state="B">
 				<eqn>IF Set_Inequality_Target_Value&gt;0 AND Set_Inequality_Target_Year &gt;0 THEN 1 ELSE 0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Inequality Bulls Eye Y Axis">
+			<aux name="Inequality Bulls Eye Y Axis" ai_state="B">
 				<eqn>
 
 (1-(Set_Inequality_Target_Value-25)/(Inequality_Max-25))*Bulls_Eye_Animation_Height
@@ -744,39 +747,39 @@
 {(1-(Test_Y_Axis_value-25)/(Inequality_Max-25))*Bulls_Eye_Animation_Height}</eqn>
 				<units>px</units>
 			</aux>
-			<aux name="Inequality Max">
+			<aux name="Inequality Max" ai_state="B">
 				<eqn>75</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Inequality Bulls Eye X Axis">
+			<aux name="Inequality Bulls Eye X Axis" ai_state="B">
 				<eqn>((Set_Inequality_Target_Year-Time_Min) / (Time_Max-Time_Min)) * Bulls_Eye_Animation_Width</eqn>
 				<units>px</units>
 			</aux>
-			<aux name="Inequality Dashboard\nBulls Eye Y Axis">
+			<aux name="Inequality Dashboard\nBulls Eye Y Axis" ai_state="B">
 				<eqn>(1-(Set_Inequality_Target_Value-25)/(Inequality_Max-25))*Bulls_Eye_Dashboard_Animation_Height</eqn>
 				<units>px</units>
 			</aux>
-			<aux name="Inequality Dashboard\nBulls Eye X Axis">
+			<aux name="Inequality Dashboard\nBulls Eye X Axis" ai_state="B">
 				<eqn>((Set_Inequality_Target_Year-Time_Minimum) / (Time_Max-Time_Minimum)) * Bulls_Eye_Dashboard_Animation_Width</eqn>
 				<units>px</units>
 			</aux>
-			<aux name="simulation delay">
+			<aux name="simulation delay" ai_state="B">
 				<eqn>0</eqn>
 				<units>seconds</units>
 			</aux>
-			<aux name="clock">
+			<aux name="clock" ai_state="B">
 				<eqn>TIME</eqn>
 				<format precision="1"/>
 				<units>years</units>
 			</aux>
-			<aux name="Labour Share of GDP 1" access="input">
+			<aux name="Labour Share of GDP 1" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Labour Share of GDP">
+			<aux name="Labour Share of GDP" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -784,7 +787,7 @@
 				<format precision="1" display_as="percent"/>
 				<units>dmnl</units>
 			</aux>
-			<module name="Behavioral Change\nOutputs" isee:label="">
+			<module name="Behavioral Change\nOutputs" isee:label="" ai_state="B">
 				<format scale_by="auto"/>
 				<connect to="Behavioral_Change_Outputs.Desired_Demand_from_Accessibility" from="Animal_Products_Demand.Desired_Demand_from_Accessibility"/>
 				<connect2 to="Behavioral_Change_Outputs.Desired_Demand_from_Accessibility" from="Animal_Products_Demand.Desired_Demand_from_Accessibility"/>
@@ -811,12 +814,12 @@
 				<connect to="Behavioral_Change_Outputs.switch_food_demand_policy_1" from="Behavioral_Choices.switch_food_demand_policy"/>
 				<connect2 to="Behavioral_Change_Outputs.switch_food_demand_policy_1" from="Behavioral_Choices.switch_food_demand_policy"/>
 			</module>
-			<aux name="Dialogue Title">
+			<aux name="Dialogue Title" ai_state="B">
 				<eqn>0</eqn>
 				<format isee:extender="Dialogue Title Mapper"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="switch animal products\nfraction policy 1" access="input">
+			<aux name="switch animal products\nfraction policy 1" ai_state="B" access="input">
 				<eqn>0</eqn>
 				<units>dmnl</units>
 			</aux>
@@ -824,141 +827,141 @@
 				<eqn>0</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="switch environmental\nconsciousness policy" access="input">
+			<aux name="switch environmental\nconsciousness policy" ai_state="B" access="input">
 				<eqn>0</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Environmental\nConsciousness Visibility">
+			<aux name="Environmental\nConsciousness Visibility" ai_state="B">
 				<eqn>IF switch_food_demand_policy_1 = 1 OR switch_animal_products_fraction_policy_1 = 1 THEN 0 ELSE 1</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Food Demand and Animal\nProducts Visibility">
+			<aux name="Food Demand and Animal\nProducts Visibility" ai_state="B">
 				<eqn>IF switch_environmental_consciousness_policy = 1 THEN 0 ELSE 1</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Text Visibility">
+			<aux name="Text Visibility" ai_state="B">
 				<eqn>IF switch_environmental_consciousness_policy = 1 THEN 1 ELSE 0</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Text Visibility 1">
+			<aux name="Text Visibility 1" ai_state="B">
 				<eqn>IF switch_food_demand_policy_1 = 1 OR switch_animal_products_fraction_policy_1 = 1 THEN 1 ELSE 0</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Result Page Pop Up\nButton 6">
+			<aux name="Result Page Pop Up\nButton 6" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Office 1 Button 3">
+			<aux name="Office 1 Button 3" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Office 1 Button 4">
+			<aux name="Office 1 Button 4" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Office 1 Button 5">
+			<aux name="Office 1 Button 5" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="2nd Policy Idea\nSet Carbon Tax Button Appear">
+			<aux name="2nd Policy Idea\nSet Carbon Tax Button Appear" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="2nd Policy Idea\nSet Nuclear Button Appear">
+			<aux name="2nd Policy Idea\nSet Nuclear Button Appear" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="2nd Policy Idea\nSet Solar Button Appear">
+			<aux name="2nd Policy Idea\nSet Solar Button Appear" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="2nd Policy Idea\nSet Wind Button Appear">
+			<aux name="2nd Policy Idea\nSet Wind Button Appear" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="2nd Policy Idea\nButton 1">
+			<aux name="2nd Policy Idea\nButton 1" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="2nd Policy Idea\nButton 2">
+			<aux name="2nd Policy Idea\nButton 2" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="2nd Policy Idea\nButton 3">
+			<aux name="2nd Policy Idea\nButton 3" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="2nd Policy Idea\nButton 4">
+			<aux name="2nd Policy Idea\nButton 4" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="2nd Policy Idea\nButton 5">
+			<aux name="2nd Policy Idea\nButton 5" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Set Carbon Tax Tick">
+			<aux name="Set Carbon Tax Tick" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Set Nuclear Tax Tick">
+			<aux name="Set Nuclear Tax Tick" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Set Solar Tax Tick">
+			<aux name="Set Solar Tax Tick" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Set Wind Tax Tick">
+			<aux name="Set Wind Tax Tick" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="2nd Policy\nImplementation Page">
+			<aux name="2nd Policy\nImplementation Page" ai_state="B">
 				<eqn>IF Set_Carbon_Tax_Tick = 1 AND Set_Nuclear_Tax_Tick = 1 AND Set_Solar_Tax_Tick = 1 AND Set_Wind_Tax_Tick = 1 THEN 1 ELSE 0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="2nd Policy Implementation page Reminder">
+			<aux name="2nd Policy Implementation page Reminder" ai_state="B">
 				<eqn>IF &quot;2nd_Policy_Implementation_Page&quot; = 1 THEN 0 ELSE 1</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="2nd Policy Idea\nButton 6">
+			<aux name="2nd Policy Idea\nButton 6" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Result Page Pop Up\nButton 1">
+			<aux name="Result Page Pop Up\nButton 1" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Result Page Pop Up\nButton 2">
+			<aux name="Result Page Pop Up\nButton 2" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Result Page Pop Up\nButton 3">
+			<aux name="Result Page Pop Up\nButton 3" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Result Page Pop Up\nButton 4">
+			<aux name="Result Page Pop Up\nButton 4" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Result Page Pop Up\nButton 5">
+			<aux name="Result Page Pop Up\nButton 5" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Median STA">
+			<aux name="Median STA" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>PERCENTILE(Surface_Temperature_Anomaly[*],  50)</eqn>
 				<units>deg C</units>
 			</aux>
-			<aux name="Median GDPpp">
+			<aux name="Median GDPpp" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>PERCENTILE(real_GDP_per_person[*],  50) * 1000</eqn>
 				<units>bc$/Mp/year</units>
 			</aux>
-			<aux name="Median Labour Share of GDP">
+			<aux name="Median Labour Share of GDP" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -966,102 +969,112 @@
 				<format precision="0.01"/>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Set Income Tax Tick">
+			<aux name="Set Income Tax Tick" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="3rd Policy Idea Set Income Tax Button Appear">
+			<aux name="3rd Policy Idea Set Income Tax Button Appear" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="3rd Policy Idea Set Profit\nTax Button Appear">
+			<aux name="3rd Policy Idea Set Profit\nTax Button Appear" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Set Profit Tax Tick">
+			<aux name="Set Profit Tax Tick" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="3rd Policy\nImplementation Page">
+			<aux name="3rd Policy\nImplementation Page" ai_state="B">
 				<eqn>IF &quot;2nd_Policy_Implementation_Page&quot; = 1 AND Set_Income_Tax_Tick = 1 AND Set_Profit_Tax_Tick = 1 THEN 1 ELSE 0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="3rd Policy Implementation Page Reminder">
+			<aux name="3rd Policy Implementation Page Reminder" ai_state="B">
 				<eqn>IF &quot;3rd_Policy_Implementation_Page&quot; = 1 THEN 0 ELSE 1</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="2nd Policy Idea\nButton 7">
+			<aux name="2nd Policy Idea\nButton 7" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Run counter">
+			<aux name="Run counter" ai_state="B">
 				<eqn>RUNCOUNT</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Show Box Whisker">
+			<aux name="Show Box Whisker" ai_state="B">
 				<eqn>IF Run_counter &gt;1 THEN 1 ELSE 0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Show Confidence">
+			<aux name="Show Confidence" ai_state="B">
 				<eqn>1-Show_Box_Whisker</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="1st Policy Office Page">
+			<aux name="1st Policy Office Page" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="1st Policy Office\npage reminder">
+			<aux name="1st Policy Office\npage reminder" ai_state="B">
 				<eqn>IF &quot;1st_Policy_Office_Page&quot;= 1 THEN 0 ELSE 1</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="2nd Policy Office Page">
+			<aux name="2nd Policy Office Page" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="2nd Policy Office\nPage reminder">
+			<aux name="2nd Policy Office\nPage reminder" ai_state="B">
 				<eqn>IF &quot;2nd_Policy_Office_Page&quot; = 1 THEN 0 ELSE 1</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="3rd Policy Office Page">
+			<aux name="3rd Policy Office Page" ai_state="B">
 				<eqn>0</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="3rd Policy Office\nPage Reminder">
+			<aux name="3rd Policy Office\nPage Reminder" ai_state="B">
 				<eqn>IF &quot;3rd_Policy_Office_Page&quot; = 1 THEN 0 ELSE 1</eqn>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="processing Icon 1">
+			<aux name="processing Icon 1" ai_state="B">
 				<eqn>0</eqn>
 				<format precision="1"/>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="processing Icon 2">
+			<aux name="processing Icon 2" ai_state="B">
 				<eqn>0</eqn>
 				<format precision="1"/>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="processing Icon 3">
+			<aux name="processing Icon 3" ai_state="B">
 				<eqn>0</eqn>
 				<format precision="1"/>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Implement Policy Button 1">
+			<aux name="Implement Policy Button 1" ai_state="B">
 				<eqn>0</eqn>
 				<format precision="1"/>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Implement Policy Button 2">
+			<aux name="Implement Policy Button 2" ai_state="B">
 				<eqn>0</eqn>
 				<format precision="1"/>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Implement Policy Button 3">
+			<aux name="Implement Policy Button 3" ai_state="B">
 				<eqn>0</eqn>
 				<format precision="1"/>
 				<units>Dimensionless</units>
 			</aux>
-			<aux name="Return to Dashboard\nButton from Navigation">
+			<aux name="Return to Dashboard\nButton from Navigation for Guide" ai_state="B">
 				<eqn>0</eqn>
+				<format precision="1"/>
+				<units>Dimensionless</units>
+			</aux>
+			<aux name="Causal Link -\nReturn to Dashboard Button" ai_state="F">
+				<eqn>0</eqn>
+				<format precision="1"/>
+				<units>Dimensionless</units>
+			</aux>
+			<aux name="Regular - Causal Structure Skip to End Button" ai_state="F">
+				<eqn>IF &quot;Causal_Link_-_Return_to_Dashboard_Button&quot; = 1 THEN 0 ELSE 1</eqn>
 				<units>Dimensionless</units>
 			</aux>
 		</variables>
@@ -1107,7 +1120,7 @@
 				<isee:iframe color="black" background="white" text_align="left" vertical_text_align="top" font_size="12pt" border_width="thin" border_style="solid"/>
 				<isee:financial_table color="black" background="#E0E0E0" text_align="right" font_size="12pt" hide_border="false" auto_fit="true" first_column_width="250" other_column_width="100" header_font_style="normal" header_font_weight="bold" header_text_decoration="none" header_text_align="center" header_vertical_text_align="center" header_font_color="black" header_font_family="Arial" header_font_size="14pt" header_text_padding="2" header_text_border_color="black" header_text_border_width="thin" header_text_border_style="none"/>
 			</style>
-			<view isee:show_pages="false" background="white" page_width="1090" page_height="761" isee:page_cols="4" isee:page_rows="5" isee:scroll_x="827" isee:scroll_y="1200" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
+			<view isee:show_pages="false" background="white" page_width="1063" page_height="771" isee:page_cols="4" isee:page_rows="5" isee:scroll_x="1119" isee:scroll_y="1600" isee:popup_graphs_are_comparative="true" isee:enable_non_negative_highlights="false" type="stock_flow">
 				<style color="black" background="white" font_style="normal" font_weight="normal" text_decoration="none" text_align="center" vertical_text_align="center" font_color="black" font_family="Arial" font_size="10pt" padding="2" border_color="black" border_width="thin" border_style="none">
 					<stock color="blue" background="white" font_color="blue" font_size="11pt" label_side="top">
 						<shape type="rectangle" width="45" height="35"/>
@@ -1711,7 +1724,13 @@
 				<aux x="2285.33" y="1845.83" name="Implement Policy Button 1"/>
 				<aux x="2285.33" y="1906.83" name="Implement Policy Button 2"/>
 				<aux x="2285.33" y="1964.83" name="Implement Policy Button 3"/>
-				<aux x="1438" y="1966" name="Return to Dashboard\nButton from Navigation"/>
+				<aux x="1688.5" y="1919.83" name="Return to Dashboard\nButton from Navigation for Guide"/>
+				<aux x="1567.5" y="2073" name="Causal Link -\nReturn to Dashboard Button"/>
+				<aux x="1739" y="2073" name="Regular - Causal Structure Skip to End Button"/>
+				<connector uid="153" angle="3.94519">
+					<from>&quot;Causal_Link_-_Return_to_Dashboard_Button&quot;</from>
+					<to>&quot;Regular_-_Causal_Structure_Skip_to_End_Button&quot;</to>
+				</connector>
 				<alias font_style="italic" uid="28" x="1051.04" y="580.667" width="18" height="18">
 					<of>Bulls_Eye_Animation_Height</of>
 				</alias>
@@ -1767,7 +1786,7 @@
 	</model>
 	<model name="Behavioral_Change_Outputs">
 		<variables>
-			<isee:placeholder name="Behavioral Placeholder">
+			<isee:placeholder name="Behavioral Placeholder" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
@@ -1783,151 +1802,151 @@ from Personal Norm} + Behavioral_Change_Outputs.Perceived_Total_Food_Social_Valu
 Social Value} + Behavioral_Change_Outputs.Perceived_Total_Food_Consumption_Risk[Run]{Perceived Total Food
 Consumption Risk}</eqn>
 			</isee:placeholder>
-			<stock name="Desired Demand\nfrom Accessibility" access="input">
+			<stock name="Desired Demand\nfrom Accessibility" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>kcal/person/day</units>
 			</stock>
-			<stock name="Perceived\nSocial Value" access="input">
+			<stock name="Perceived\nSocial Value" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>dmnl</units>
 			</stock>
-			<aux name="desired demand\nfrom personal norm" access="input">
+			<aux name="desired demand\nfrom personal norm" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>kcal/person/day</units>
 			</aux>
-			<aux name="desired demand\nfrom descriptive norm" access="input">
+			<aux name="desired demand\nfrom descriptive norm" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>kcal/person/day</units>
 			</aux>
-			<aux name="perceived\nconsumption risk" access="input">
+			<aux name="perceived\nconsumption risk" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="switch food demand\npolicy 1" access="input">
+			<aux name="switch food demand\npolicy 1" ai_state="B" access="input">
 				<eqn>0</eqn>
 				<units>dmnl</units>
 			</aux>
-			<stock name="Desired Demand\nfrom Accessibility 1" access="input">
+			<stock name="Desired Demand\nfrom Accessibility 1" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>kcal/person/day</units>
 			</stock>
-			<aux name="desired demand\nfrom descriptive norm 1" access="input">
+			<aux name="desired demand\nfrom descriptive norm 1" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>kcal/person/day</units>
 			</aux>
-			<aux name="desired demand\nfrom personal norm 1" access="input">
+			<aux name="desired demand\nfrom personal norm 1" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>kcal/person/day</units>
 			</aux>
-			<stock name="Perceived\nSocial Value 1" access="input">
+			<stock name="Perceived\nSocial Value 1" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>dmnl</units>
 			</stock>
-			<aux name="perceived\nconsumption risk 1" access="input">
+			<aux name="perceived\nconsumption risk 1" ai_state="B" access="input">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>{Enter equation for use when not hooked up to other models}</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Desired Total Food Demand\nfrom Accessibility">
+			<aux name="Desired Total Food Demand\nfrom Accessibility" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>IF switch_food_demand_policy_1 THEN NAN ELSE Desired_Demand_from_Accessibility_1</eqn>
 				<units>kCal/Person/Day</units>
 			</aux>
-			<aux name="Desired Total Food Demand\nfrom Descriptive Norm">
+			<aux name="Desired Total Food Demand\nfrom Descriptive Norm" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>IF switch_food_demand_policy_1 THEN NAN ELSE desired_demand_from_descriptive_norm_1</eqn>
 				<units>kCal/Person/Day</units>
 			</aux>
-			<aux name="Desired Total Food Demand\nfrom Personal Norm">
+			<aux name="Desired Total Food Demand\nfrom Personal Norm" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>IF switch_food_demand_policy_1 THEN NAN ELSE desired_demand_from_personal_norm_1</eqn>
 				<units>kCal/Person/Day</units>
 			</aux>
-			<aux name="Perceived Total Food\nConsumption Risk">
+			<aux name="Perceived Total Food\nConsumption Risk" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>IF switch_food_demand_policy_1 THEN NAN ELSE perceived_consumption_risk_1</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Perceived Total Food\nSocial Value">
+			<aux name="Perceived Total Food\nSocial Value" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>IF switch_food_demand_policy_1 THEN NAN ELSE Perceived_Social_Value_1</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Desired Animal Products Demand\nfrom Accessibility">
+			<aux name="Desired Animal Products Demand\nfrom Accessibility" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>IF switch_animal_products_fraction_policy THEN NAN ELSE Desired_Demand_from_Accessibility</eqn>
 				<units>kCal/Person/Day</units>
 			</aux>
-			<aux name="Desired Animal Products Demand\nfrom Descriptive Norm">
+			<aux name="Desired Animal Products Demand\nfrom Descriptive Norm" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>IF switch_animal_products_fraction_policy THEN NAN ELSE desired_demand_from_descriptive_norm</eqn>
 				<units>kCal/Person/Day</units>
 			</aux>
-			<aux name="Desired Animal Products Demand\nfrom Personal Norm">
+			<aux name="Desired Animal Products Demand\nfrom Personal Norm" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>IF switch_animal_products_fraction_policy THEN NAN ELSE desired_demand_from_personal_norm</eqn>
 				<units>kCal/Person/Day</units>
 			</aux>
-			<aux name="Perceived Animal Products\nConsumption Risk">
+			<aux name="Perceived Animal Products\nConsumption Risk" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>IF switch_animal_products_fraction_policy THEN NAN ELSE perceived_consumption_risk</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="Perceived Animal Products\nSocial Value">
+			<aux name="Perceived Animal Products\nSocial Value" ai_state="B">
 				<dimensions>
 					<dim name="Run"/>
 				</dimensions>
 				<eqn>IF switch_animal_products_fraction_policy THEN NAN ELSE Perceived_Social_Value</eqn>
 				<units>dmnl</units>
 			</aux>
-			<aux name="switch animal products\nfraction policy" access="input">
+			<aux name="switch animal products\nfraction policy" ai_state="B" access="input">
 				<eqn>0</eqn>
 				<units>dmnl</units>
 			</aux>
